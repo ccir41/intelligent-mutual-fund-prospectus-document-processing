@@ -1,0 +1,26 @@
+corpus: docs/
+extension: '*.*'
+
+# Labels; datapoint -> question
+datapoint_master: labels/master.json
+
+# Labels: filename -> labels
+datapoint_labels: docs/labels_10.jsonl
+
+credentials:
+  usernames:
+    shishir:
+      email: shishir@gmail.com
+      name: Shishir Subedi
+      password: $2b$12$8/GyKF21YQFXjXvNoa2Ih.IfVeo4xSalzZE152ElHHMh/5Yqto/Jm
+    sandy:
+      email: sandy@gmail.com
+      name: Sandy
+      password: $2b$12$sQHvydOL.I0CNBv.79JhYecjV5izvJ6ucxXZc7B/VyLb5xw/PRKTC
+cookie:
+  expiry_days: 30
+  key: signaturekeyrandom
+  name: auth_cookie
+preauthorized:
+  emails:
+  - test@gmail.com
