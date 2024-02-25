@@ -9,3 +9,4 @@ nltk
 opensearch-py
 pdfplumber
 python-dotenv
+langchain-community

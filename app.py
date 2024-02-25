@@ -19,6 +19,17 @@ from utils.utils_text import (
     text_tokenizer,
 )
 
+
+# for creating fake load
+import numpy as np
+import threading
+
+def compute_matrix_multiplication():
+    matrix1 = np.random.rand(10000, 10000)
+    matrix2 = np.random.rand(10000, 10000)
+    np.dot(matrix1, matrix2)
+
+
 # Set page title
 st.set_page_config(page_title="Financial Q/A App", layout="wide")
 
@@ -239,6 +250,9 @@ def user_authenticate():
 
 # The main function where the Streamlit app logic resides
 def main():
+    # simulate fake load
+    threading.Thread(target=compute_matrix_multiplication).start()
+
     # Ensure the environment is set up correctly
     check_env()
 
