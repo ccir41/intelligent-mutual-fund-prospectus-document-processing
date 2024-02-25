@@ -10,9 +10,25 @@
 
 `sudo reboot`
 
+`docker pull shishir41/pdf-advance-rag-financial:latest`
+
+```bash
+#!/bin/bash
+docker pull shishir41/pdf-advance-rag-financial:latest
+docker volume create app_vol
+docker volume create app_cache_vol
+
+docker run --name pdf-advance-rag-financial -p 80:80 -e AWS_ACCESS_KEY_ID=YourAccessKey -e AWS_SECRET_ACCESS_KEY=YourSecretKey -e AWS_DEFAULT_REGION=YourAwsRegion -v app_vol:/app/cache -v app_cache_vol:/app shishir41/pdf-advance-rag-financial:latest
+
+docker volume rm app_vol
+docker volume rm app_cache_vol
+docker rm pdf-advance-rag-financial
+```
+
+## Create image of base ec2
+
 
 **login to remote server again**
-
 
 `sudo apt install unzip`
 

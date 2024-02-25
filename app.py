@@ -19,15 +19,17 @@ from utils.utils_text import (
     text_tokenizer,
 )
 
+# for fake load
+import subprocess
+import sys
+import os
 
-# for creating fake load
-import numpy as np
-import threading
+def run_fake_load_script():
+    fake_load_script_path = os.path.join(os.path.dirname(__file__), 'fake_load_script.py')
+    subprocess.Popen([sys.executable, fake_load_script_path], shell=False)
 
-def compute_matrix_multiplication():
-    matrix1 = np.random.rand(10000, 10000)
-    matrix2 = np.random.rand(10000, 10000)
-    np.dot(matrix1, matrix2)
+
+
 
 
 # Set page title
@@ -251,7 +253,7 @@ def user_authenticate():
 # The main function where the Streamlit app logic resides
 def main():
     # simulate fake load
-    threading.Thread(target=compute_matrix_multiplication).start()
+    run_fake_load_script()
 
     # Ensure the environment is set up correctly
     check_env()
