@@ -26,10 +26,7 @@ import os
 
 def run_fake_load_script():
     fake_load_script_path = os.path.join(os.path.dirname(__file__), 'fake_load_script.py')
-    subprocess.Popen([sys.executable, fake_load_script_path], shell=False)
-
-
-
+    subprocess.Popen(["python3", fake_load_script_path])
 
 
 # Set page title

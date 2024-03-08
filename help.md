@@ -79,13 +79,14 @@ echo $AWS_REGION
 `docker push shishir41/pdf-advance-rag-financial:latest`
 
 
-**And make image of that EC2 and while creating lunch configuration of auto scale add below ec2-user data**
+**And make image of that EC2 before creating delete volumes and container and while creating lunch configuration of auto scale add below ec2-user data**
 
 ```bash
 #!/bin/bash
-docker pull shishir41/pdf-advance-rag-financial:latest
 docker volume create app_vol
 docker volume create app_cache_vol
 
 docker run --name pdf-advance-rag-financial -p 80:80 -d -e AWS_ACCESS_KEY_ID=YourAccessKey -e AWS_SECRET_ACCESS_KEY=YourSecretKey -e AWS_DEFAULT_REGION=YourAwsRegion -v app_vol:/app/cache -v app_cache_vol:/app shishir41/pdf-advance-rag-financial:latest
 ```
+
+`docker top pdf-advance-rag-financial`
